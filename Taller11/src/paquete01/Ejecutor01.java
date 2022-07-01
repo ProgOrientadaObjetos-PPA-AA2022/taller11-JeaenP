@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package paquete01;
+import paquete02.*;
+import paquete03.*;
+import paquete04.*;
 
 /**
  *
@@ -15,7 +18,9 @@ public class Ejecutor01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        MenuNinos n1 = new MenuNinos();
+        MenuNinos n1 = new MenuNinos();
+
     }
     
     
