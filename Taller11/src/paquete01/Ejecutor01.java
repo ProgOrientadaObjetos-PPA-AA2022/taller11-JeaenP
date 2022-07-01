@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package paquete01;
+import java.util.ArrayList;
 import paquete02.*;
 import paquete03.*;
 import paquete04.*;
@@ -18,9 +19,25 @@ public class Ejecutor01 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        MenuNinos n1 = new MenuNinos();
-        MenuNinos n1 = new MenuNinos();
-
+        ArrayList<Menu> menus = new ArrayList<>();
+        MenuNinos n1 = new MenuNinos(1, 1.5, "Niños 01", 2);
+        MenuNinos n2 = new MenuNinos(1, 1.5, "Niños 02", 3 );
+        MenuEconomico e = new MenuEconomico(25, "Econo 001", 4);
+        MenuDelDia d = new MenuDelDia(1, 1, "Dia 001", 5);
+        MenuALaCarta c = new MenuALaCarta(1.5, 2, 10, "Carta 001", 6);
+        n1.calcularValorMenu();
+        n2.calcularValorMenu();
+        e.calcularValorMenu();
+        d.calcularValorMenu();
+        c.calcularValorMenu();
+        menus.add(n1);
+        menus.add(n2);
+        menus.add(e);
+        menus.add(d);
+        menus.add(c);
+        Cuenta cuenta = new Cuenta("René Elizalde", 10, menus);
+        cuenta.calcularValorCancelar();
+        System.out.println(cuenta);
     }
     
     
@@ -29,14 +46,14 @@ public class Ejecutor01 {
 /*
 Factura
 Cliente: René Elizalde
-Menu del Día:
+Menu de niños:
 	Plato: Niños 01
 	Valor Inicial: 2,00
 	Valor helado: 1,00
 	Valor pastel: 1,50
 	Valor del Menú: 4,50
 
-Menu del Día:
+Menu de niños:
 	Plato: Niños 02
 	Valor Inicial: 3,00
 	Valor helado: 1,00

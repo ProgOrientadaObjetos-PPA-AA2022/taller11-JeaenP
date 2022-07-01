@@ -17,12 +17,11 @@ public class Cuenta {
     private ArrayList<Menu> listadoCartas;
     private double valorCancelar;
 
-    public Cuenta(String nombreCliente, double IVA, ArrayList<Menu> listadoCartas, 
-            double valorCancelar) {
+        public Cuenta(String nombreCliente, double IVA, ArrayList<Menu> listadoCartas) {
         this.nombreCliente = nombreCliente;
         this.IVA = IVA;
         this.listadoCartas = listadoCartas;
-        this.valorCancelar = valorCancelar;
+        
     }
 
     
@@ -38,8 +37,11 @@ public class Cuenta {
         this.listadoCartas = listadoCartas;
     }
 
-    public void setValorCancelar(double valorCancelar) {
-        this.valorCancelar = valorCancelar;
+    public void calcularValorCancelar() {
+        for (int i = 0; i < listadoCartas.size(); i++) {
+            valorCancelar = valorCancelar + listadoCartas.get(i).getValorMenu();
+            
+        }
     }
 
     public String getNombreCliente() {
@@ -58,6 +60,24 @@ public class Cuenta {
         return valorCancelar;
     }
     
-    
+    public String toString() {
+        String cadena = String.format("Factura\n"
+                + "Cliente: %s\n", 
+                nombreCliente);
+        for (int i = 0; i < listadoCartas.size(); i++) {
+            cadena = String.format("%s"
+                    + "%s\n", cadena, listadoCartas.get(i));
+        }
+        
+        cadena = String.format("%s"
+                + "Subtotal: %.2f\n"
+                + "IVA: %.2f%%\n"
+                + "Total a pagar: %.3f", 
+                cadena,
+                valorCancelar,
+                IVA,
+                valorCancelar + (valorCancelar * (IVA/100)));
+        return cadena;
+    }
    
 }

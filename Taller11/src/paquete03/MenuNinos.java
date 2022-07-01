@@ -43,11 +43,15 @@ public class MenuNinos extends Menu {
     public String toString() {
         String cadena = String.format("Menu de Niños\n"
                 + "\tPlato: %s\n"
-                + "\tValor Inicial: %s\n"
+                + "\tValor Inicial: %.2f\n"
                 + "\tValor Helado: %.2f\n"
                 + "\tValor Pastel: %.2f\n"
-                + "\tValor Menu: %"
-                + "\t");
+                + "\tValor Menu: %.2f\n",
+                nombrePlato,
+                valorInicial,
+                valorPorcionHelado,
+                valorPorcionPastel,
+                valorMenu);
         return cadena;
     }
 }
